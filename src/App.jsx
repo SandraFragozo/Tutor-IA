@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Paradigmas from './pages/S4/Paradigmas';
+import Enfoques from './pages/S4/Enfoques';
 
 // Importaremos tus infografías aquí más adelante
 // import Paradigmas from './pages/Paradigmas'; 
@@ -16,9 +17,8 @@ function App() {
         {/* Cuando la ruta sea "/", muestra el Home */}
         <Route path="/" element={<Home />} />
         <Route path="/paradigmas" element={<Paradigmas />} />
+        <Route path="/enfoques" element={<Enfoques />} />
 
-        {/* Ejemplo de futura ruta */}
-        {/* <Route path="/paradigmas" element={<Paradigmas />} /> */}
       </Routes>
     </BrowserRouter>
   );
