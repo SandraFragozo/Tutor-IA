@@ -2,7 +2,7 @@ import { useState } from 'react';
 import {
     BarChart2, Search, Layers, ArrowRight, Scale,
     CheckCircle, Compass, GitMerge, MousePointerClick,
-    FileText, Database, RefreshCw
+    FileText, Database, RefreshCw, Users
 } from 'lucide-react';
 import Chatbot from '../../components/Chatbot';
 
@@ -13,7 +13,7 @@ export default function Enfoques() {
     // Estado para los diseños Mixtos
     const [activeMix, setActiveMix] = useState('exploratorio');
 
-    // Estado para la interactividad de las fases (NUEVO)
+    // Estado para la interactividad de las fases
     const [selectedPhaseInfo, setSelectedPhaseInfo] = useState(null);
 
     // Resetear info al cambiar de pestaña mixta
@@ -22,10 +22,19 @@ export default function Enfoques() {
         setSelectedPhaseInfo(null); // Limpia la selección anterior
     };
 
-    // Datos para el comparador
+    // Datos para el comparador (Con estilos explícitos para arreglar el bug del color rosa)
     const comparisonData = {
         cuanti: {
-            theme: "blue",
+            styles: {
+                bgIcon: "bg-blue-100",
+                textIcon: "text-blue-600",
+                bgCard: "bg-blue-50",
+                borderCard: "border-blue-100",
+                titleColor: "text-blue-800",
+                subTitleColor: "text-blue-600",
+                checkColor: "text-blue-500",
+                btnActive: "text-blue-500"
+            },
             title: "Cuantitativo",
             subtitle: "Objetividad y Medición",
             desc: "Mide fenómenos, usa estadísticas y busca probar hipótesis. Es como tomar una foto satelital: ves el panorama general y los patrones.",
@@ -38,7 +47,16 @@ export default function Enfoques() {
             ]
         },
         cuali: {
-            theme: "pink",
+            styles: {
+                bgIcon: "bg-pink-100",
+                textIcon: "text-pink-600",
+                bgCard: "bg-pink-50",
+                borderCard: "border-pink-100",
+                titleColor: "text-pink-800",
+                subTitleColor: "text-pink-600",
+                checkColor: "text-pink-500",
+                btnActive: "text-pink-500"
+            },
             title: "Cualitativo",
             subtitle: "Profundidad y Significado",
             desc: "Comprende experiencias, usa narrativas y busca generar teoría. Es como bajar a la calle y hablar con la gente: ves los detalles y sentimientos.",
@@ -53,11 +71,12 @@ export default function Enfoques() {
     };
 
     const currentMode = comparisonData[activeMode];
+    const s = currentMode.styles;
 
     return (
         <div className="min-h-screen bg-slate-50 pb-20">
 
-            {/* --- HERO SECTION (Sin borde inferior) --- */}
+            {/* --- HERO SECTION (Corrección: Eliminado border-b) --- */}
             <header className="bg-white pt-12 pb-12 px-4 text-center relative overflow-hidden shadow-sm">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"></div>
 
@@ -75,14 +94,13 @@ export default function Enfoques() {
 
             <main className="max-w-6xl mx-auto px-4 mt-8">
 
-                {/* --- SECCIÓN 1: EL DUELO (INTERACTIVO) --- */}
+                {/* --- SECCIÓN 1: EL DUELO (Corrección: Colores dinámicos arreglados) --- */}
                 <section className="bg-white rounded-3xl shadow-xl p-8 mb-16 relative overflow-hidden">
                     <div className="text-center mb-8">
                         <h2 className="text-2xl font-bold text-slate-800 mb-6">Comparador: ¿Qué camino tomar?</h2>
 
-                        {/* SWITCHER MEJORADO */}
+                        {/* SWITCHER */}
                         <div className="inline-flex bg-slate-100 p-1 rounded-full relative shadow-inner">
-                            {/* Fondo animado del switch */}
                             <div className={`w-1/2 h-full absolute top-0 rounded-full transition-all duration-300 shadow-sm 
                         ${activeMode === 'cuanti' ? 'left-0 bg-blue-500' : 'left-1/2 bg-pink-500'}`}>
                             </div>
@@ -108,27 +126,27 @@ export default function Enfoques() {
                         {/* Lado Izquierdo: Información Dinámica */}
                         <div className="space-y-6 animate-fade-in">
                             <div className={`w-20 h-20 rounded-2xl flex items-center justify-center mb-4 transition-colors duration-500
-                        bg-${currentMode.theme}-100 text-${currentMode.theme}-600`}>
+                        ${s.bgIcon} ${s.textIcon}`}>
                                 {currentMode.icon}
                             </div>
                             <div>
                                 <h3 className="text-4xl font-bold text-slate-800 mb-2">{currentMode.title}</h3>
-                                <p className={`text-xl font-bold text-${currentMode.theme}-600`}>{currentMode.subtitle}</p>
+                                <p className={`text-xl font-bold ${s.subTitleColor}`}>{currentMode.subtitle}</p>
                             </div>
                             <p className="text-slate-600 text-lg leading-relaxed">
                                 {currentMode.desc}
                             </p>
                         </div>
 
-                        {/* Lado Derecho: Tarjeta de Características */}
-                        <div className={`bg-${currentMode.theme}-50 rounded-3xl p-8 border border-${currentMode.theme}-100 shadow-sm transition-colors duration-500`}>
-                            <h4 className={`font-bold text-lg mb-6 flex items-center gap-2 text-${currentMode.theme}-800`}>
+                        {/* Lado Derecho: Tarjeta de Características (Ahora usa las clases explícitas) */}
+                        <div className={`${s.bgCard} rounded-3xl p-8 border ${s.borderCard} shadow-sm transition-colors duration-500`}>
+                            <h4 className={`font-bold text-lg mb-6 flex items-center gap-2 ${s.titleColor}`}>
                                 <CheckCircle size={20} /> Características Clave
                             </h4>
                             <ul className="space-y-4">
                                 {currentMode.features.map((feat, i) => (
                                     <li key={i} className="flex gap-3 text-slate-700 font-medium items-start">
-                                        <ArrowRight size={18} className={`text-${currentMode.theme}-500 shrink-0 mt-1`} />
+                                        <ArrowRight size={18} className={`${s.checkColor} shrink-0 mt-1`} />
                                         {feat}
                                     </li>
                                 ))}
@@ -137,7 +155,7 @@ export default function Enfoques() {
                     </div>
                 </section>
 
-                {/* --- SECCIÓN 2: MÉTODOS MIXTOS (RENOVADO + INTERACTIVO) --- */}
+                {/* --- SECCIÓN 2: MÉTODOS MIXTOS (Sin borrar información) --- */}
                 <section className="mb-16">
                     <div className="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden">
 
@@ -235,7 +253,17 @@ export default function Enfoques() {
                                             </button>
                                         </div>
 
-                                        {/* Panel de Información Detallada (Condicional) */}
+                                        {/* Info siempre visible del contexto */}
+                                        {!selectedPhaseInfo && (
+                                            <div className="bg-purple-50 p-6 rounded-xl border-l-4 border-purple-500 animate-fade-in mb-4">
+                                                <h3 className="text-lg font-bold text-purple-900 mb-1">Explorar para Medir</h3>
+                                                <p className="text-slate-700 text-sm">
+                                                    Úsalo cuando <strong>NO sabes qué variables medir</strong>. Primero entrevistas para descubrir los temas y luego creas una encuesta.
+                                                </p>
+                                            </div>
+                                        )}
+
+                                        {/* Panel de Información Detallada (Al hacer clic) */}
                                         {selectedPhaseInfo === 'exploratorio_f1' && (
                                             <div className="bg-purple-50 p-6 rounded-xl border-l-4 border-purple-500 animate-fade-in">
                                                 <h3 className="text-lg font-bold text-purple-900 mb-2 flex items-center gap-2"><Search size={20} /> Detalle Fase 1: Exploración</h3>
@@ -254,11 +282,6 @@ export default function Enfoques() {
                                                     <li><strong>Técnica:</strong> Cuestionario (Survey) con escala Likert.</li>
                                                     <li><strong>Resultado:</strong> Datos estadísticos validados.</li>
                                                 </ul>
-                                            </div>
-                                        )}
-                                        {!selectedPhaseInfo && (
-                                            <div className="text-center text-slate-500 italic bg-slate-50 p-4 rounded-lg">
-                                                👆 Selecciona una fase arriba para ver qué instrumentos utilizar.
                                             </div>
                                         )}
                                     </div>
@@ -306,6 +329,16 @@ export default function Enfoques() {
                                             </button>
                                         </div>
 
+                                        {/* Info siempre visible del contexto */}
+                                        {!selectedPhaseInfo && (
+                                            <div className="bg-blue-50 p-6 rounded-xl border-l-4 border-blue-500 animate-fade-in mb-4">
+                                                <h3 className="text-lg font-bold text-blue-900 mb-1">Medir y luego Explicar</h3>
+                                                <p className="text-slate-700 text-sm">
+                                                    Úsalo cuando los números te dicen <strong>"qué"</strong> pasó (ej: ventas cayeron), pero necesitas entrevistas para entender <strong>"por qué"</strong>.
+                                                </p>
+                                            </div>
+                                        )}
+
                                         {/* Panel Detalle Explicativo */}
                                         {selectedPhaseInfo === 'explicativo_f1' && (
                                             <div className="bg-blue-50 p-6 rounded-xl border-l-4 border-blue-500 animate-fade-in">
@@ -325,15 +358,10 @@ export default function Enfoques() {
                                                 </ul>
                                             </div>
                                         )}
-                                        {!selectedPhaseInfo && (
-                                            <div className="text-center text-slate-500 italic bg-slate-50 p-4 rounded-lg">
-                                                👆 Selecciona una fase arriba para ver qué instrumentos utilizar.
-                                            </div>
-                                        )}
                                     </div>
                                 )}
 
-                                {/* --- 3. VISUALIZACIÓN: TRIANGULACIÓN (Esmeralda - TRIÁNGULO INTERACTIVO) --- */}
+                                {/* --- 3. VISUALIZACIÓN: TRIANGULACIÓN (Esmeralda) --- */}
                                 {activeMix === 'triangulacion' && (
                                     <div className="w-full max-w-4xl animate-fade-in relative">
                                         <p className="text-center text-slate-400 text-sm mb-6 flex items-center justify-center gap-2">
@@ -386,6 +414,16 @@ export default function Enfoques() {
                                             </div>
                                         </div>
 
+                                        {/* Info siempre visible si no hay selección */}
+                                        {!selectedPhaseInfo && (
+                                            <div className="bg-emerald-50 p-6 rounded-xl border-l-4 border-emerald-500 animate-fade-in text-left mb-4">
+                                                <h3 className="text-lg font-bold text-emerald-900 mb-1">Validación Cruzada</h3>
+                                                <p className="text-slate-700 text-sm">
+                                                    Haces ambos estudios <strong>simultáneamente</strong>. Comparas los hallazgos para ver si coinciden y dar validez.
+                                                </p>
+                                            </div>
+                                        )}
+
                                         {/* Panel Info Triangulación */}
                                         {selectedPhaseInfo === 'tri_cuali' && (
                                             <div className="bg-emerald-50 p-4 rounded-lg text-sm text-emerald-800 border border-emerald-200 text-center animate-fade-in">
@@ -409,7 +447,7 @@ export default function Enfoques() {
                     </div>
                 </section>
 
-                {/* --- SECCIÓN 3: MATRIZ DE DECISIÓN (Sin Cambios, funcionaba bien) --- */}
+                {/* --- SECCIÓN 3: MATRIZ DE DECISIÓN (Igual) --- */}
                 <section className="mb-16">
                     <h2 className="text-3xl font-bold text-slate-800 mb-8 text-center">Matriz de Decisión: ¿Cuál elijo?</h2>
 
@@ -434,19 +472,19 @@ export default function Enfoques() {
                             <div className="text-blue-700 font-bold text-sm">✅ Elige CUANTITATIVO</div>
                         </div>
 
-                        <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all border-l-4 border-indigo-500 group cursor-pointer md:col-span-2">
+                        <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all border-l-4 border-teal-500 group cursor-pointer md:col-span-2">
                             <div className="flex justify-between items-start mb-4">
                                 <span className="bg-slate-100 text-slate-600 text-xs font-bold px-2 py-1 rounded uppercase">Escenario 3</span>
-                                <GitMerge className="text-indigo-500 group-hover:scale-110 transition-transform" />
+                                <GitMerge className="text-teal-500 group-hover:scale-110 transition-transform" />
                             </div>
                             <h3 className="font-bold text-lg mb-2">Problema Complejo (Necesitas Ambos)</h3>
                             <p className="text-slate-600 text-sm mb-4">Necesitas generalizar (números) pero también entender el contexto profundo (historias). Los recursos te lo permiten.</p>
-                            <div className="text-indigo-700 font-bold text-sm">✅ Elige MÉTODOS MIXTOS</div>
+                            <div className="text-teal-600 font-bold text-sm">✅ Elige MÉTODOS MIXTOS</div>
                         </div>
                     </div>
                 </section>
 
-                {/* --- TIP FINAL (Color Dorado/Ámbar para no repetir morado) --- */}
+                {/* --- TIP FINAL (Corrección: Color Ámbar/Dorado) --- */}
                 <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6 shadow-sm mb-20 flex flex-col md:flex-row gap-6 items-center">
                     <div className="bg-white p-4 rounded-full shadow-md text-4xl">👑</div>
                     <div>
