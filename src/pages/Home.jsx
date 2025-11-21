@@ -30,7 +30,7 @@ export default function Home() {
                         </Link>
                     </div>
 
-                    {/* 2. Tarjeta: Enfoques Metodológicos (NUEVA) */}
+                    {/* 2. Tarjeta: Enfoques */}
                     <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all hover:-translate-y-1 border-t-4 border-pink-500">
                         <div className="text-4xl mb-4">🧭</div>
                         <h2 className="text-2xl font-bold mb-2 text-slate-800">Enfoques</h2>
@@ -42,10 +42,10 @@ export default function Home() {
                         </Link>
                     </div>
 
-                    {/* 3. Tarjeta: Tipología de Estudios (NUEVA) */}
+                    {/* 3. Tarjeta: Tipología (Alcance) */}
                     <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all hover:-translate-y-1 border-t-4 border-teal-500">
                         <div className="text-4xl mb-4">🔭</div>
-                        <h2 className="text-2xl font-bold mb-2 text-slate-800">Tipología (Alcance)</h2>
+                        <h2 className="text-2xl font-bold mb-2 text-slate-800">Tipología</h2>
                         <p className="text-slate-600 mb-6 text-sm leading-relaxed">
                             Exploratorio, Descriptivo, Correlacional, Explicativo. Define la profundidad y el alcance de tu estudio.
                         </p>
@@ -54,16 +54,40 @@ export default function Home() {
                         </Link>
                     </div>
 
-                    {/* 4. Tarjeta: Muestreo (Próximamente) */}
-                    <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all hover:-translate-y-1 border-t-4 border-blue-500 opacity-75 grayscale hover:grayscale-0">
-                        <div className="text-4xl mb-4">👥</div>
+                    {/* 4. Tarjeta: Diseños (Experimental vs No Experimental) */}
+                    <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all hover:-translate-y-1 border-t-4 border-violet-600">
+                        <div className="text-4xl mb-4">🗺️</div>
+                        <h2 className="text-2xl font-bold mb-2 text-slate-800">Diseños</h2>
+                        <p className="text-slate-600 mb-6 text-sm leading-relaxed">
+                            Experimental vs No Experimental. ¿Vas a manipular variables o a observar la realidad tal cual es?
+                        </p>
+                        <Link to="/disenos" className="block w-full text-center bg-violet-50 text-violet-700 py-2 rounded-lg font-semibold hover:bg-violet-100 transition">
+                            Ver Guía →
+                        </Link>
+                    </div>
+
+                    {/* 5. Tarjeta: Muestreo */}
+                    <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all hover:-translate-y-1 border-t-4 border-emerald-500">
+                        <div className="text-4xl mb-4">🎲</div>
                         <h2 className="text-2xl font-bold mb-2 text-slate-800">Muestreo</h2>
                         <p className="text-slate-600 mb-6 text-sm leading-relaxed">
-                            ¿Probabilístico o No Probabilístico? Aprende a calcular tu muestra y seleccionar participantes.
+                            ¿Probabilístico (Sorteo) o No Probabilístico (Criterio)? Aprende a seleccionar a tus participantes.
                         </p>
-                        <button className="block w-full text-center bg-slate-100 text-slate-400 py-2 rounded-lg font-semibold cursor-not-allowed">
-                            Próximamente
-                        </button>
+                        <Link to="/muestreo" className="block w-full text-center bg-emerald-50 text-emerald-700 py-2 rounded-lg font-semibold hover:bg-emerald-100 transition">
+                            Ver Guía →
+                        </Link>
+                    </div>
+
+                    {/* 6. Tarjeta: Instrumentos (NUEVA) */}
+                    <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all hover:-translate-y-1 border-t-4 border-orange-500">
+                        <div className="text-4xl mb-4">🛠️</div>
+                        <h2 className="text-2xl font-bold mb-2 text-slate-800">Instrumentos</h2>
+                        <p className="text-slate-600 mb-6 text-sm leading-relaxed">
+                            Cuestionarios, Entrevistas, Observación. Elige la herramienta perfecta para recolectar tus datos.
+                        </p>
+                        <Link to="/instrumentos" className="block w-full text-center bg-orange-50 text-orange-700 py-2 rounded-lg font-semibold hover:bg-orange-100 transition">
+                            Ver Guía →
+                        </Link>
                     </div>
 
                 </div>

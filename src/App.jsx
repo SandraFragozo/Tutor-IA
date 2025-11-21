@@ -6,6 +6,7 @@ import Enfoques from './pages/S4/Enfoques';
 import Tipologia from './pages/S4/Tipologia';
 import Disenos from './pages/S4/Disenos';
 import Muestreo from './pages/S4/Muestreo';
+import Instrumentos from './pages/S4/Instrumentos';
 
 // Importaremos tus infografías aquí más adelante
 // import Paradigmas from './pages/Paradigmas'; 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/tipologia" element={<Tipologia />} />
         <Route path="/disenos" element={<Disenos />} />
         <Route path="/muestreo" element={<Muestreo />} />
+        <Route path="/instrumentos" element={<Instrumentos />} />
 
       </Routes>
     </BrowserRouter>
