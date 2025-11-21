@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Paradigmas from './pages/S4/Paradigmas';
 import Enfoques from './pages/S4/Enfoques';
+import Tipologia from './pages/S4/Tipologia';
 
 // Importaremos tus infografías aquí más adelante
 // import Paradigmas from './pages/Paradigmas'; 
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/paradigmas" element={<Paradigmas />} />
         <Route path="/enfoques" element={<Enfoques />} />
+        <Route path="/tipologia" element={<Tipologia />} />
 
       </Routes>
     </BrowserRouter>
