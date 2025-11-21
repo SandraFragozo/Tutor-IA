@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     try {
         // 3. Conectar con Gemini usando la clave secreta
         const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-        const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
         // 4. Configurar la personalidad del experto
         const systemPrompt = `
