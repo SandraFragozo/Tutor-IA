@@ -6,7 +6,7 @@ export default function Navbar() {
             <div className="container mx-auto flex justify-between items-center">
                 {/* Logo / Título */}
                 <Link to="/" className="text-xl font-bold flex items-center gap-2">
-                    🤖 Tutoría IA
+                    🤖 TutorIA
                 </Link>
 
                 {/* Enlaces de Navegación */}
