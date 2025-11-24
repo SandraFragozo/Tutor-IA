@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { MessageCircle } from 'lucide-react';
 
 export default function Navbar() {
     return (
@@ -12,7 +13,11 @@ export default function Navbar() {
                 {/* Enlaces de Navegación */}
                 <div className="flex gap-4 text-sm font-medium">
                     <Link to="/" className="hover:text-blue-400 transition">Inicio</Link>
-                    {/* Aquí iremos agregando más enlaces si hace falta */}
+
+                    <Link to="/chat-general" className="flex items-center gap-1 hover:text-indigo-400 transition text-indigo-300">
+                        <MessageCircle size={16} /> Asesor IA
+                    </Link>
+
                     <span className="text-slate-500">|</span>
                     <a href="https://github.com" target="_blank" className="hover:text-blue-400">GitHub</a>
                 </div>
