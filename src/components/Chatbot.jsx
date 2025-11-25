@@ -25,7 +25,10 @@ export default function Chatbot({ tema }) {
         if (!input.trim()) return;
 
         const userMessage = input.trim();
-        setMessages(prev => [...prev, { role: 'user', text: userMessage }]);
+
+        // 1. Guardamos el mensaje nuevo en el estado local
+        const newHistory = [...messages, { role: 'user', text: userMessage }];
+        setMessages(newHistory);
         setInput('');
         setIsLoading(true);
 
@@ -33,7 +36,11 @@ export default function Chatbot({ tema }) {
             const response = await fetch('/api/chat', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ message: userMessage, context: tema })
+                body: JSON.stringify({
+                    message: userMessage, // El mensaje nuevo
+                    history: messages,    // <--- ¡LA CLAVE! Enviamos el historial anterior
+                    context: tema
+                })
             });
 
             const data = await response.json();
