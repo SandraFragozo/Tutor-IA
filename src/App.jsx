@@ -9,6 +9,8 @@ import Tipologia from './pages/S4/Tipologia';
 import Disenos from './pages/S4/Disenos';
 import Muestreo from './pages/S4/Muestreo';
 import Instrumentos from './pages/S4/Instrumentos';
+import JuicioExpertos from './pages/S5/JuicioExpertos';
+import Cronograma from './pages/S5/Cronograma';
 
 // Importaremos tus infografías aquí más adelante
 // import Paradigmas from './pages/Paradigmas'; 
@@ -30,6 +32,8 @@ function App() {
         <Route path="/disenos" element={<Disenos />} />
         <Route path="/muestreo" element={<Muestreo />} />
         <Route path="/instrumentos" element={<Instrumentos />} />
+        <Route path="/juicio-expertos" element={<JuicioExpertos />} />
+        <Route path="/cronograma" element={<Cronograma />} />
 
       </Routes>
     </BrowserRouter>
