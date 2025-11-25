@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import ChatGeneral from './pages/GeneralChat';
+import Planteamiento from './pages/S1/Planteamiento';
 import Paradigmas from './pages/S4/Paradigmas';
 import Enfoques from './pages/S4/Enfoques';
 import Tipologia from './pages/S4/Tipologia';
@@ -22,6 +23,7 @@ function App() {
         {/* Cuando la ruta sea "/", muestra el Home */}
         <Route path="/" element={<Home />} />
         <Route path="/chat-general" element={<ChatGeneral />} />
+        <Route path="/planteamiento" element={<Planteamiento />} />
         <Route path="/paradigmas" element={<Paradigmas />} />
         <Route path="/enfoques" element={<Enfoques />} />
         <Route path="/tipologia" element={<Tipologia />} />
