@@ -10,6 +10,7 @@ import Disenos from './pages/S4/Disenos';
 import Muestreo from './pages/S4/Muestreo';
 import Instrumentos from './pages/S4/Instrumentos';
 import JuicioExpertos from './pages/S5/JuicioExpertos';
+import ValidacionExpertos from './pages/S5/ValidacionExpertos';
 import Cronograma from './pages/S5/Cronograma';
 
 // Importaremos tus infografías aquí más adelante
@@ -33,6 +34,7 @@ function App() {
         <Route path="/muestreo" element={<Muestreo />} />
         <Route path="/instrumentos" element={<Instrumentos />} />
         <Route path="/juicio-expertos" element={<JuicioExpertos />} />
+        <Route path="/validacion-expertos" element={<ValidacionExpertos />} />
         <Route path="/cronograma" element={<Cronograma />} />
 
       </Routes>
